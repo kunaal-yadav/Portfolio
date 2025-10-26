@@ -1,0 +1,1097 @@
+/*
+    Portfolio Website Styles
+    @author Kunal Yadav
+*/
+
+/* General Styles */
+:root {
+    --primary-color: #121212;
+    --secondary-color: #64ffda;
+    --text-color: #8892b0;
+    --heading-color: #ccd6f6;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.nav-item {
+    position: relative;
+    margin: 0 5px;
+}
+
+.nav-link {
+    color: var(--heading-color) !important;
+    text-transform: capitalize;
+    padding: 0.5rem 1.2rem !important;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    letter-spacing: 1px;
+    transition: all 0.3s ease, letter-spacing 0.3s ease;
+}
+
+/* Glowing effect */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(100, 255, 218, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+}
+
+.nav-link:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+/* Underline effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+/* Text effect */
+.nav-link span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover span {
+    transform: translateY(-2px);
+}
+
+/* Active state */
+.nav-link.active {
+    background: rgba(100, 255, 218, 0.1);
+    border-color: var(--secondary-color);
+    color: var(--secondary-color) !important;
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(100, 255, 218, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(100, 255, 218, 0);
+    }
+}
+
+/* Hover lift effect */
+.nav-item:hover .nav-link {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(100, 255, 218, 0.2);
+}
+
+/* Click effect */
+.nav-link:active {
+    transform: scale(0.95);
+}
+
+.nav-link:hover {
+    letter-spacing: 2px;
+}
+
+/* Mobile responsive animations */
+@media (max-width: 991px) {
+    .nav-link::before {
+        display: none;
+    }
+    
+    .nav-link:hover {
+        background: rgba(100, 255, 218, 0.1);
+        transform: translateX(5px);
+    }
+
+    .navbar-nav {
+        gap: 0.5rem;
+        padding: 1rem 0;
+    }
+    
+    .nav-link {
+        text-align: center;
+    }
+}
+
+/* Staggered fade-in animation for navbar items */
+.nav-item {
+    opacity: 0;
+    animation: fadeInNav 0.5s ease forwards;
+}
+
+.nav-item:nth-child(1) { animation-delay: 0.1s; }
+.nav-item:nth-child(2) { animation-delay: 0.2s; }
+.nav-item:nth-child(3) { animation-delay: 0.3s; }
+.nav-item:nth-child(4) { animation-delay: 0.4s; }
+.nav-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInNav {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*KY Logo Styles */
+.logo {
+    display: flex;
+    gap: 5px;
+    padding: 2px;
+}
+
+.logo-box {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transform: rotate(-10deg);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-box.accent {
+    border-color: var(--secondary-color);
+    transform: rotate(10deg);
+}
+
+.logo-letter {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: white;
+    transform: rotate(10deg);
+    transition: all 0.4s ease;
+}
+
+.logo-box.accent .logo-letter {
+    color: var(--secondary-color);
+    transform: rotate(-10deg);
+}
+
+
+/* Hover Animations */
+.navbar-brand:hover .logo-box {
+    transform: rotate(0deg) scale(1.1);
+}
+
+.navbar-brand:hover .logo-letter {
+    transform: rotate(0deg);
+}
+
+.navbar-brand:hover .logo-box:first-child {
+    border-color: white;
+    box-shadow: -3px 3px 0px white;
+}
+
+.navbar-brand:hover .logo-box.accent {
+    border-color: var(--secondary-color);
+    box-shadow: 3px 3px 0px var(--secondary-color);
+}
+
+/* Add subtle glow on hover */
+.navbar-brand:hover .logo-box.accent {
+    box-shadow: 3px 3px 0px var(--secondary-color),
+                0 0 15px rgba(100, 255, 218, 0.3);
+} 
+
+
+/* Hero Section */
+.hero-section {
+    padding: 100px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.available-badge {
+    display: inline-block;
+    background-color: rgba(100, 255, 218, 0.1);
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+/* Floating animation for the available badge */
+.available-badge {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.wave {
+    animation: wave 2s infinite;
+    display: inline-block;
+}
+
+/* Animations */
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+} 
+h1, h2 {
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+/* Glowing text effect for the name */
+.highlight {
+    color: var(--secondary-color);
+    animation: glowText 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+    from {
+        text-shadow: 0 0 10px rgba(100, 255, 218, 0.2),
+                     0 0 20px rgba(100, 255, 218, 0.2),
+                     0 0 30px rgba(100, 255, 218, 0.2);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(100, 255, 218, 0.4),
+                     0 0 30px rgba(100, 255, 218, 0.4),
+                     0 0 40px rgba(100, 255, 218, 0.4);
+    }
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.location i {
+    color: var(--secondary-color);
+} 
+
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links .btn {
+    margin-right: 1rem;
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.social-links .btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Social Links Animation */
+.social-links .btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin: 0 8px;
+    border-width: 2px;
+}
+
+.social-links .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.social-links .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: all 0.5s ease;
+}
+
+.social-links .btn:hover::before {
+    left: 100%;
+}
+
+/* Specific button hover colors */
+.social-links .btn[href*="mailto"]:hover {
+    background-color: #EA4335;
+    border-color: #EA4335;
+}
+
+.social-links .btn[href*="linkedin"]:hover {
+    background-color: #0077B5;
+    border-color: #0077B5;
+}
+
+.social-links .btn[href*="github"]:hover {
+    background-color: #333;
+    border-color: #333;
+}
+
+.social-links .btn:last-child:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+/* skills Section */
+.section {
+    padding: 100px 0;
+}
+
+.section-title {
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Skills Grid Layout */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.skills-section {
+    max-width: 100%;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Skill Section styles */
+.skill-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    animation-fill-mode: both;
+}
+
+.skill-item::before {
+    content: attr(data-skill);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.skill-item:hover::before {
+    transform: translateY(0);
+}
+
+.skill-item i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.skill-item span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: rgba(100, 255, 218, 0.1);
+    box-shadow: 0 10px 20px rgba(100, 255, 218, 0.1);
+    border: 1px solid var(--secondary-color);
+}
+
+.skill-item:hover i {
+    animation: iconBounce 0.5s ease infinite alternate;
+}
+
+.skill-item:hover::before {
+    animation: skillPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes skillPulse {
+    0% {
+        transform: translateY(100%);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+}
+
+/* Add a glowing effect on hover */
+.skill-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    background: radial-gradient(circle at center, var(--secondary-color) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.skill-item:hover::after {
+    opacity: 0.1;
+}
+
+/* Animation for skill items */
+.skill-item {
+    animation: fadeInScale 0.6s backwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Add animation delay for each skill item */
+.skills-container .skill-item:nth-child(n) {
+    animation-delay: calc(0.1s * var(--i));
+}
+
+/* Skill items animation */
+.skill-item.animate-hidden {
+    transform: translateY(50px) scale(0.9);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-item.animate-in {
+    transform: translateY(0) scale(1);
+}
+
+/* Rotating icons in skills section */
+.skill-item:hover i {
+    animation: rotateIcon 0.8s ease-in-out;
+}
+
+@keyframes rotateIcon {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-15deg);
+    }
+    75% {
+        transform: rotate(15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Projects Section */
+.project-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+
+
+/* Enhanced animations */
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--secondary-color), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+    opacity: 0.1;
+}
+
+/* Enhanced Project Section Styles */
+.project-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    height: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+    border-color: var(--secondary-color);
+}
+
+.project-tech {
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--secondary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+}
+
+.project-info h3 {
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.project-info ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.project-info ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.project-info ul li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+}
+
+/* Make sure overlays don't block clicks */
+.project-card::before,
+.project-card::after {
+    pointer-events: none;
+} 
+
+/* Project Links Styling */
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.project-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+/* Hover effect with sliding background */
+.project-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-color);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.project-link:hover::before {
+    left: 0;
+}
+
+.project-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 var(--secondary-color);
+}
+
+/* Icon animation */
+.project-link i {
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover i {
+    transform: rotate(360deg) scale(1.2);
+}
+
+/* Glowing effect on hover */
+.project-link:hover {
+    text-shadow: 0 0 8px rgba(100, 255, 218, 0.5);
+}
+
+/* Project cards animation */
+.project-card.animate-hidden {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card.animate-in {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+/* Education Section Styles */
+.education-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.education-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.education-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+    border-color: var(--secondary-color);
+}
+
+.education-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    padding: 15px;
+    background: rgba(100, 255, 218, 0.1);
+    border-radius: 12px;
+    height: fit-content;
+}
+
+.education-content {
+    flex: 1;
+}
+
+.education-date {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.education-degree {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--heading-color);
+}
+
+.education-school {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.education-school i {
+    margin-right: 8px;
+    color: var(--secondary-color);
+}
+
+/* Scroll Animations */
+.animate-hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(100px);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity, filter;
+}
+
+.animate-in {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+
+/* Education cards animation */
+.education-card.animate-hidden {
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.education-card.animate-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* 3D flip effect for education cards */
+.education-card {
+    perspective: 1000px;
+}
+
+.education-card:hover {
+    animation: flip 0.6s ease-out;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0);
+    }
+    50% {
+        transform: rotateX(10deg);
+    }
+    100% {
+        transform: rotateX(0);
+    }
+}
+
+/* Contact Section */
+.contact-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.thank-you-message {
+    display: none; /* Initially hidden */
+    color: var(--secondary-color) ;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.contact-method {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    min-width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.contact-method:hover {
+    transform: translateY(-5px);
+}
+
+.contact-method i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.contact-form .form-control {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact-form .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--secondary-color);
+    box-shadow: none;
+    color: var(--heading-color);
+}
+
+.contact-form .btn-primary {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-form .btn-primary:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Optional: Style the form inputs to ensure good contrast */
+.contact-form .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.contact-form .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1);
+} 
+
+/* Pulsing animation for contact methods */
+.contact-method {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(100, 255, 218, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(100, 255, 218, 0);
+    }
+}
+
+
+
+/* Section titles animation */
+.section-title.animate-hidden {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-title.animate-in {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+    .animate-hidden {
+        transition: none;
+    }
+} 
+
+/* Gradient border animation for section titles */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        var(--secondary-color), 
+        transparent 50%,
+        var(--secondary-color));
+    background-size: 200% 100%;
+    animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+} 
+
+
+/* Footer Section Styles */
+.footer {
+    background-color: rgba(18, 18, 18, 0.95);
+    padding: 0.5rem 0;
+    margin-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer p {
+    margin-bottom: 0;
+    color: #8892b0;
+    font-size: 0.85rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.social-icon {
+    color: #8892b0;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #64ffda;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+    .footer-social {
+        justify-content: center;
+        margin-top: 0.25rem;
+    }
+} 
+
+/* Add these styles to make form placeholders more visible */
+::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important; /* Makes placeholder text more visible with 60% opacity white */
+    opacity: 1; /* Required for Firefox */
+}
+
+/* For Microsoft Edge */
+:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* For Internet Explorer */
+::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.left-adjusted-image {
+    margin-left: -60px; 
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    will-change: transform, box-shadow;
+}
+
+.left-adjusted-image:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+} 
+
+/* Ensure smooth scrolling on all devices */
+html {
+    scroll-behavior: smooth;
+}

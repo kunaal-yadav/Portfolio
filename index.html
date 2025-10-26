@@ -1,0 +1,421 @@
+<!--
+    Portfolio Website
+    @author Kunal Yadav
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kunal Yadav's Portfolio Website">
+    <title>Kunal's Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <!-- Devicon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <div class="logo">
+                    <div class="logo-box">
+                        <span class="logo-letter">K</span>
+                    </div>
+                    <div class="logo-box accent">
+                        <span class="logo-letter">Y</span>
+                    </div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home"><span>Home</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills"><span>Skills</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects"><span>Projects</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education"><span>Education</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><span>Contact</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-80">
+                <div class="col-lg-8">
+                    <div class="available-badge">Available for Work</div>
+                    <h1>Hi <span class="wave">👋</span>,</h1>
+                    <h2>I'm <span class="highlight">Kunal Yadav</span></h2>
+                    <p class="lead">Full Stack Software Developer</p>
+                    <p class="location"><i class="bi bi-geo-alt-fill"></i> Ontario, Canada</p>
+                    <div class="hero-summary">
+                        <p>Aspiring software developer with a strong foundation in full-stack development and a passion for creating efficient, user-friendly applications. Currently pursuing Computer System Technician at Mohawk College, specializing in Software Support.</p>
+                    </div>
+                    <div class="contact-info">
+                    </div>
+                    <div class="social-links">
+                        <a href="mailto:kunalya2001@gmail.com" class="btn btn-outline-light">
+                            <i class="bi bi-envelope"></i> Email
+                        </a>
+                        <a href="https://www.linkedin.com/in/kunaal-yadav" class="btn btn-outline-light"
+                            target="_blank">
+                            <i class="bi bi-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/kunaal-yadav" class="btn btn-outline-light" target="_blank">
+                            <i class="bi bi-github"></i> Github
+                        </a>
+                        <a href="assets/resume.pdf" class="btn btn-outline-light" target="_blank">
+                            <i class="bi bi-file-text"></i> Resume
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <img src="assets/picture.png" alt="Kunal Yadav" class="img-fluid left-adjusted-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skills-section">
+                    <h3 class="skills-category">Programming Languages</h3>
+                    <div class="skills-container">
+                        <div class="skill-item" data-skill="Java">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
+                        </div>
+                        <div class="skill-item" data-skill="C#">
+                            <i class="devicon-csharp-plain"></i>
+                            <span>C#</span>
+                        </div>
+                        <div class="skill-item" data-skill="PHP">
+                            <i class="fab fa-php"></i>
+                            <span>PHP</span>
+                        </div>
+                        <div class="skill-item" data-skill="Python">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item" data-skill="SQL">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-section">
+                    <h3 class="skills-category">Web Technologies</h3>
+                    <div class="skills-container">
+                        <div class="skill-item" data-skill="JavaScript">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item" data-skill="React">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item" data-skill="HTML5">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML</span>
+                        </div>
+                        <div class="skill-item" data-skill="CSS3">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS</span>
+                        </div>
+                        <div class="skill-item" data-skill="Bootstrap">
+                            <i class="fab fa-bootstrap"></i>
+                            <span>Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-section">
+                    <h3 class="skills-category">Tools & Methodologies</h3>
+                    <div class="skills-container">
+                        <div class="skill-item" data-skill="Software Testing">
+                            <i class="fas fa-vial"></i>
+                            <span>Software Testing</span>
+                        </div>
+                        <div class="skill-item" data-skill="SQL">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                        <div class="skill-item" data-skill="Git">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item" data-skill="GitHub">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </div>
+                        <div class="skill-item" data-skill="Figma">
+                            <i class="fab fa-figma"></i>
+                            <span>Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row g-4">
+                <!-- Portfolio -->
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Personal Portfolio Website</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Bootstrap</span>
+                            </div>
+                            <ul>
+                                <li>Enhanced user experience through interactive animations and smooth transitions</li>
+                                <li>Improved site accessibility by implementing fully responsive design across all device types</li>
+                                <li>Streamlined communication through an integrated contact system</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://kunaal-yadav.github.io/" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i> Live
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ticket Scanning App -->
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Ticket Scanning Application</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">JavaFX</span>
+                                <span class="tech-tag">OOP</span>
+                            </div>
+                            <ul>
+                                <li>Enhanced event entry efficiency through real-time QR code validation with audio feedback system</li>
+                                <li>Minimized entry errors by implementing robust input validation and user-friendly interface design</li>
+                                <li>Strengthened security through encrypted ticket verification, preventing unauthorized access attempts</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/kunaal-yadav/Ticket-Scanning-App" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jump Obstacle Game -->
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Jump Obstacle Game</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Bootstrap</span>
+                            </div>
+                            <ul>
+                                <li>Created an engaging browser-based game featuring smooth gameplay mechanics and responsive collision detection</li>
+                                <li>Boosted player engagement by implementing competitive features including real-time score tracking and leaderboards</li>
+                                <li>Expanded accessibility through responsive design, ensuring seamless gameplay across desktop and mobile devices</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/kunaal-yadav/Jump-Obstacle-Game" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coffee Shop System -->
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Coffee Shop Ordering System</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">OOP</span>
+                                <span class="tech-tag">JavaFX</span>
+                            </div>
+                            <ul>
+                                <li>Streamlined the ordering process through intuitive UI design and efficient OOP architecture</li>
+                                <li>Minimized order errors by implementing automated cost calculation and detailed digital receipts</li>
+                                <li>Optimized inventory tracking using an inheritance-based product categorization system</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/kunaal-yadav/Coffee-Shop-Ordering-System" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-container">
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <div class="education-date">Expected: Jan 2026</div>
+                        <h3 class="education-degree">Computer System Technician: Software Support</h3>
+                        <div class="education-school">
+                            <i class="fas fa-university"></i>
+                            Mohawk College, Hamilton, ON
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <div class="education-date">2022</div>
+                        <h3 class="education-degree">Diploma in Geomatics Engineering</h3>
+                        <div class="education-school">
+                            <i class="fas fa-university"></i>
+                            Nepal Banepa Polytechnic Institute, Banepa, Nepal
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="contact-card">
+                        <div class="contact-info text-center mb-4">
+                            <p class="lead">I'm currently looking for new opportunities. Whether you have a question or
+                                just want to say hi, feel free to reach out!</p>
+                            <div class="contact-methods">
+                                <div class="contact-method">
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <p>+1365-883-5588</p>
+                                </div>
+                                <div class="contact-method">
+                                    <i class="bi bi-envelope-fill"></i>
+                                    <p>Kunalya2001@gmail.com</p>
+                                </div>
+                                <div class="contact-method">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                    <p>Hamilton, ON</p>
+                                </div>
+                            </div>
+                            <div id="thank-you-message" class="thank-you-message"></div>
+                        </div>
+                        <form id="contact-form" class="contact-form">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="name" placeholder="Your Name"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" placeholder="Your Email"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="subject" placeholder="Subject"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="message" rows="5"
+                                            placeholder="Your Message" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p>&copy; 2025 Kunal Yadav. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="footer-social text-center text-md-end">
+                        <a href="mailto:kunalya2001@gmail.com" class="social-icon">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kunaal-yadav" class="social-icon" target="_blank">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/kunaal-yadav" class="social-icon" target="_blank">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="scripts/script.js"></script>
+    
+</body>
+
+</html>
